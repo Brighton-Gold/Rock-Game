@@ -8,13 +8,13 @@ namespace HelloWorld
         public static void Main()
         {
 
-            var ScreenHeight = 1200;
-            var ScreenWidth = 900;
+            var ScreenHeight = 900;
+            var ScreenWidth = 1500;
             float BallRadius = 15;
             var BallPosition = new Vector2(ScreenHeight / 2, ScreenWidth - BallRadius);
             var BallMovementSpeed = 4;
 
-            Raylib.InitWindow(ScreenHeight, ScreenWidth, "Ball");
+            Raylib.InitWindow(ScreenWidth, ScreenHeight, "Ball");
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
