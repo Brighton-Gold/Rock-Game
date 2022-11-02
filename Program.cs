@@ -14,7 +14,11 @@ namespace HelloWorld
             var BallPosition = new Vector2(ScreenHeight / 2, ScreenWidth - BallRadius);
             var BallMovementSpeed = 4;
 
+<<<<<<< Updated upstream
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Ball");
+=======
+            Raylib.InitWindow(ScreenHeight, ScreenWidth, "#");
+>>>>>>> Stashed changes
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
