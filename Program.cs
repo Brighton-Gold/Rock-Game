@@ -23,13 +23,13 @@ namespace HelloWorld
             while (!Raylib.WindowShouldClose() && playerball.CurrentPoints >= 1) // game loop runs while esc or close button is not hit AND if the player's score is 1 or more. 
             {
                 
-                if (loopcount <= 80) 
+                if (loopcount <= 80)
                 {
                     Raylib.DrawText("Move the ball with the arrow keys!", 12, 12, 20, Color.WHITE);
-                } else if (loopcount <= 160) 
+                } else if (loopcount <= 160)
                 {
                     Raylib.DrawText("Collect the gems, avoid the rocks!", 12, 12, 20, Color.WHITE);
-                } else if (loopcount <= 240) 
+                } else if (loopcount <= 240)
                 {
                     Raylib.DrawText("Dont Die!", 12, 12, 20, Color.WHITE);
                 }
