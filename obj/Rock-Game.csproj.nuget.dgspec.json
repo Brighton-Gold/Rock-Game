@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ethbo\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj": {}
+    "C:\\Users\\brigh\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ethbo\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj": {
+    "C:\\Users\\brigh\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ethbo\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj",
+        "projectUniqueName": "C:\\Users\\brigh\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj",
         "projectName": "Rock-Game",
-        "projectPath": "C:\\Users\\ethbo\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj",
-        "packagesPath": "C:\\Users\\ethbo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ethbo\\Documents\\GitHub\\Rock-Game\\obj\\",
+        "projectPath": "C:\\Users\\brigh\\Documents\\GitHub\\Rock-Game\\Rock-Game.csproj",
+        "packagesPath": "C:\\Users\\brigh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\brigh\\Documents\\GitHub\\Rock-Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ethbo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\brigh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
