@@ -7,6 +7,7 @@ namespace HelloWorld
     {
         public static void Main()
         {
+            var Objects = new List<Rock>();
 
             var ScreenHeight = 500; 
             var ScreenWidth = 1000; 
@@ -36,10 +37,16 @@ namespace HelloWorld
 
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.BROWN);
-                Raylib.DrawText($"{loopcount}", 12, 30, 20, Color.WHITE);
+                Raylib.DrawText($"{Objects.Count()}", 12, 30, 20, Color.WHITE);
 
                 Rock rock = new Rock();
-                Rock.DrawRock(ScreenWidth);
+                Vector2 RockPosition = Rock.DrawRock(ScreenWidth);
+
+                Objects.Add(rock);
+                
+                
+                Raylib.DrawCircleV(RockPosition, 8, Color.BEIGE);
+
 
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
                     BallPosition.X += BallMovementSpeed;
@@ -63,6 +70,13 @@ namespace HelloWorld
                 Raylib.EndDrawing();
                 
                 loopcount += 1;
+                foreach (var Obj in Objects)
+                {
+                    RockPosition = Rock.Move(RockPosition);
+                    Raylib.DrawCircleV(RockPosition, BallRadius, Color.GREEN);
+
+
+                }
             }
 
             Raylib.CloseWindow();

@@ -4,14 +4,26 @@ using System.Numerics;
 class Rock
 {
     // This should draw a rock at a random position along the top of the screen
-    public static void DrawRock(int ScreenWidth) 
+    public static Vector2 DrawRock(int ScreenWidth) 
     {
         // Calling Random to make the horrizontal position of the rock random
         Random Rndint = new Random();
         // getting a new Ballposition object for use in the DrawCircleV Method for the rock
-        var BallPosition = new Vector2(Rndint.Next(ScreenWidth), 0); // this uses the screen height to start it on the top of the screen
-        // Draws a beige rock at the determined position (above) and 8 pixels in size
-        Raylib.DrawCircleV(BallPosition, 8, Color.BEIGE);
+        var RockPosition = new Vector2(Rndint.Next(ScreenWidth), 0); // this uses the screen height to start it on the top of the screen
+
+        return RockPosition;
+
+        
+    }
+    public static Vector2 Move(Vector2 RockPosition)
+    {
+        Vector2 Velocity = new Vector2(0, 1);
+        Vector2 NewPosition = RockPosition;
+        NewPosition.Y += Velocity.Y;
+        RockPosition = NewPosition;
+
+        return RockPosition;
+
     }
     
     public virtual int EditPoints(int CurrentPoints) // Virtual so it can be changed in Gem()
