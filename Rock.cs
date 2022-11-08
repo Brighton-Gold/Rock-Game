@@ -7,9 +7,10 @@ class Rock
     public static Vector2 DrawRock(int ScreenWidth) 
     {
         // Calling Random to make the horrizontal position of the rock random
-        Random Rndint = new Random();
+        Random random = new Random();
+        int Rndint = random.Next(0, ScreenWidth);
         // getting a new Ballposition object for use in the DrawCircleV Method for the rock
-        var RockPosition = new Vector2(Rndint.Next(ScreenWidth), 0); // this uses the screen height to start it on the top of the screen
+        var RockPosition = new Vector2(Rndint, 0); // this uses the screen height to start it on the top of the screen
 
         return RockPosition;
 

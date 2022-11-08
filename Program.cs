@@ -9,6 +9,8 @@ namespace HelloWorld
         {
             var Objects = new List<Rock>();
 
+            Rock rock = new Rock();
+
             var ScreenHeight = 500; 
             var ScreenWidth = 1000; 
             float BallRadius = 15;
@@ -21,7 +23,7 @@ namespace HelloWorld
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Rock Game");
             Raylib.SetTargetFPS(60);
 
-            while (!Raylib.WindowShouldClose() && playerball.CurrentPoints >= 1) // game loop runs while esc or close button is not hit AND if the player's score is 1 or more. 
+            while (!Raylib.WindowShouldClose() || playerball.CurrentPoints >= 1) // game loop runs while esc or close button is not hit AND if the player's score is 1 or more. 
             {
                 
                 if (loopcount <= 80)
@@ -38,8 +40,6 @@ namespace HelloWorld
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.BROWN);
                 Raylib.DrawText($"{Objects.Count()}", 12, 30, 20, Color.WHITE);
-
-                Rock rock = new Rock();
                 
                 Vector2 RockPosition = Rock.DrawRock(ScreenWidth);
 
@@ -69,8 +69,8 @@ namespace HelloWorld
                 Raylib.DrawCircleV(BallPosition, BallRadius, Color.MAROON);
 
                 
-                loopcount += 1;
-                foreach (var Obj in Objects)
+                
+                if(loopcount == 100)
                 {
                     Raylib.DrawCircleV(RockPosition, BallRadius, Color.GREEN);
 
@@ -78,14 +78,14 @@ namespace HelloWorld
                     
                     Raylib.DrawCircleV(RockPosition, BallRadius, Color.GREEN);
 
-                    
-
+                    loopcount = 0;
                 }
-                Raylib.EndDrawing();
+                
+                loopcount += 1;
 
             }
-
             Raylib.CloseWindow();
+        
         }
     }
 }
