@@ -40,12 +40,13 @@ namespace HelloWorld
                 Raylib.DrawText($"{Objects.Count()}", 12, 30, 20, Color.WHITE);
 
                 Rock rock = new Rock();
+                
                 Vector2 RockPosition = Rock.DrawRock(ScreenWidth);
 
                 Objects.Add(rock);
                 
                 
-                Raylib.DrawCircleV(RockPosition, 8, Color.BEIGE);
+                // Raylib.DrawCircleV(RockPosition, 8, Color.BEIGE);
 
 
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT)) {
@@ -67,16 +68,21 @@ namespace HelloWorld
                 
                 Raylib.DrawCircleV(BallPosition, BallRadius, Color.MAROON);
 
-                Raylib.EndDrawing();
                 
                 loopcount += 1;
                 foreach (var Obj in Objects)
                 {
-                    RockPosition = Rock.Move(RockPosition);
                     Raylib.DrawCircleV(RockPosition, BallRadius, Color.GREEN);
 
+                    RockPosition = Rock.Move(RockPosition);
+                    
+                    Raylib.DrawCircleV(RockPosition, BallRadius, Color.GREEN);
+
+                    
 
                 }
+                Raylib.EndDrawing();
+
             }
 
             Raylib.CloseWindow();
