@@ -8,8 +8,9 @@ namespace HelloWorld
         public static void Main()
         {
             var Objects = new List<Rock>();
+            var GemList = new List<Gem>();
 
-
+            int points = 0;
             var ScreenHeight = 500;
             var ScreenWidth = 1000;
             float BallRadius = 15;
@@ -22,7 +23,7 @@ namespace HelloWorld
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Rock Game");
             Raylib.SetTargetFPS(60);
 
-            while (!Raylib.WindowShouldClose() && playerball.CurrentPoints >= 1) // game loop runs while esc or close button is not hit AND if the player's score is 1 or more. 
+            while (!Raylib.WindowShouldClose() && points >= 0) // game loop runs while esc or close button is not hit AND if the player's score is 1 or more. 
             {
 
                 if (loopcount < 100)
@@ -31,7 +32,7 @@ namespace HelloWorld
                 }
                 else if (100 < loopcount && loopcount < 200)
                 {
-                    Raylib.DrawText("Collect the gems, avoid the rocks!", 12, 12, 20, Color.BLACK);
+                    Raylib.DrawText("Collect the gems(Pink), avoid the rocks(Brown)!", 12, 12, 20, Color.BLACK);
                 }
                 else if (200 < loopcount && loopcount < 300)
                 {
@@ -41,7 +42,7 @@ namespace HelloWorld
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.WHITE);
 
-                Raylib.DrawText($"{Objects.Count()}", 12, 30, 20, Color.BLACK);
+                Raylib.DrawText($"Score {points}", 12, 30, 20, Color.BLACK);
 
                 if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
                 {
@@ -67,6 +68,28 @@ namespace HelloWorld
                 Raylib.DrawCircleV(BallPosition, BallRadius, Color.MAROON);
 
 
+                if (loopcount == 150)
+                {
+                    Gem gem = new Gem(ScreenWidth);
+                    GemList.Add(gem);
+
+                }
+                for (int item = 0; item < GemList.Count(); item++)
+                {
+                    Raylib.DrawCircleV(GemList[item].Position, BallRadius, Color.PINK);
+                    GemList[item].Move();
+
+                    if (Raylib.CheckCollisionCircles(BallPosition, BallRadius, GemList[item].Position, BallRadius) == true)        // Check collision between two circles
+
+                    {
+
+                        points = GemList[item].EditPoints(points);
+                        Raylib.EndDrawing();
+
+                        GemList.Remove(GemList[item]);
+
+                    }
+                }
 
                 if (loopcount == 200)
                 {
@@ -81,11 +104,14 @@ namespace HelloWorld
 
                 for (int i = 0; i < Objects.Count(); i++)
                 {
-                    Raylib.DrawCircleV(Objects[i].Position, BallRadius, Color.GREEN);
+                    Raylib.DrawCircleV(Objects[i].Position, BallRadius, Color.BROWN);
                     Objects[i].Move();
 
-                    if (BallPosition == Objects[i].Position)
+                    if (Raylib.CheckCollisionCircles(BallPosition, BallRadius, Objects[i].Position, BallRadius) == true)        // Check collision between two circles
+
                     {
+
+                        points = Objects[i].EditPoints(points);
                         Raylib.EndDrawing();
 
                         Objects.Remove(Objects[i]);
