@@ -4,7 +4,15 @@ using System.Numerics;
 class Rock
 {
     // This should draw a rock at a random position along the top of the screen
-    public static Vector2 DrawRock(int ScreenWidth) 
+    public Vector2 Position;
+    public Rock(int ScreenWidth)
+    {
+        Vector2 rockspot = CreateNewRock(ScreenWidth);
+        Position = rockspot;
+
+    }
+
+    public Vector2 CreateNewRock(int ScreenWidth)
     {
         // Calling Random to make the horrizontal position of the rock random
         Random random = new Random();
@@ -14,19 +22,19 @@ class Rock
 
         return RockPosition;
 
-        
+
     }
-    public static Vector2 Move(Vector2 RockPosition)
+    public Vector2 Move()
     {
         Vector2 Velocity = new Vector2(0, 1);
-        Vector2 NewPosition = RockPosition;
+        Vector2 NewPosition = Position;
         NewPosition.Y += Velocity.Y;
-        RockPosition = NewPosition;
+        Position = NewPosition;
 
-        return RockPosition;
+        return Position;
 
     }
-    
+
     public virtual int EditPoints(int CurrentPoints) // Virtual so it can be changed in Gem()
     {
         return CurrentPoints -= 1; // changes and returns the player's current points
@@ -36,11 +44,11 @@ class Rock
 }
 
 
-class Gem : Rock // Basically the same as the Rock class, so this uses inheritance from Rock(). 
-{
+// class Gem : Rock // Basically the same as the Rock class, so this uses inheritance from Rock(). 
+// {
 
-    public override int EditPoints(int CurrentPoints)
-    {
-        return CurrentPoints += 1;
-    }
-}
+//     public override int EditPoints(int CurrentPoints)
+//     {
+//         return CurrentPoints += 1;
+//     }
+// }
