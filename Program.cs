@@ -23,7 +23,7 @@ namespace HelloWorld
             Raylib.InitWindow(ScreenWidth, ScreenHeight, "Rock Game");
             Raylib.SetTargetFPS(60);
 
-            while (!Raylib.WindowShouldClose() && points >= 0) // game loop runs while esc or close button is not hit AND if the player's score is 1 or more. 
+            while (!Raylib.WindowShouldClose() && points >= -1) // game loop runs while esc or close button is not hit AND if the player's score is 1 or more. 
             {
 
                 if (loopcount < 100)
